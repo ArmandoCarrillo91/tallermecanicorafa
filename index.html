@@ -6,6 +6,7 @@
   <title>Taller Mecánico Rafa — Colima</title>
   <meta name="description" content="Taller mecánico de confianza en Colima. Afinación, frenos, suspensión, motor y más. Cotiza por WhatsApp en minutos.">
   <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -65,6 +66,15 @@
       display: flex; align-items: center; gap: 8px;
     }
     .nav-logo svg { width: 20px; height: 20px; stroke: var(--t1); stroke-width: 1.5; fill: none; }
+    .logo-mark {
+      display: flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px;
+      border: 2px solid var(--t1);
+      border-radius: 5px;
+      font-weight: 800; font-size: 14px;
+      color: var(--t1);
+      flex-shrink: 0;
+    }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a {
       font-size: 13px; color: var(--t2); text-decoration: none;
@@ -262,7 +272,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17H3V11l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0H9m-6-6h15m-6 0V6"/></svg>
+      <span class="logo-mark">R</span>
       Taller Mecánico Rafa
     </a>
     <div class="nav-links">
@@ -340,8 +350,8 @@
       <h3>Distribución</h3>
     </div>
     <div class="svc">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M18.36 5.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
-      <h3>Eléctrico</h3>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v6m0 4v6m0-6h4m-4 0H8"/><circle cx="12" cy="12" r="10"/></svg>
+      <h3>Inyectores</h3>
     </div>
   </div>
 </section>
@@ -444,7 +454,7 @@
     </div>
   </div>
   <div class="mw">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1883.598071343196!2d-103.73980390072715!3d19.230281689549297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254fd41183d3e5%3A0x3499c2c5a21723c2!2sTaller%20Mec%C3%A1nico%20Rafa!5e0!3m2!1sen!2smx!4v1772638894559!5m2!1sen!2smx" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-103.7241!3d19.2433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE0JzM2LjAiTiAxMDPCsDQzJzI2LjgiVw!5e0!3m2!1ses!2smx!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 
@@ -471,6 +481,5 @@ const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.
 document.querySelectorAll('.fi').forEach(e=>o.observe(e));
 </script>
 
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
