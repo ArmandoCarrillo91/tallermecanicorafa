@@ -6,10 +6,12 @@
   <title>Taller Mecánico Rafa — Colima</title>
   <meta name="description" content="Taller mecánico de confianza en Colima. Afinación, frenos, suspensión, motor y más. Cotiza por WhatsApp en minutos.">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content="Taller Mecánico Rafa — Colima">
+  <meta property="og:description" content="Tu taller de confianza en Colima. Cotiza por WhatsApp.">
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -35,13 +37,11 @@
     }
     a { color: inherit; }
 
-    /* ICON STYLE */
+    /* ICON */
     .icon {
       width: 32px; height: 32px;
-      stroke: var(--t2);
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke: var(--t2); stroke-width: 1.5;
+      stroke-linecap: round; stroke-linejoin: round;
       fill: none;
     }
 
@@ -52,8 +52,7 @@
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid var(--border);
-      height: 56px;
-      padding: 0 24px;
+      height: 56px; padding: 0 24px;
     }
     .nav-inner {
       max-width: 1100px; margin: 0 auto; width: 100%;
@@ -65,21 +64,15 @@
       text-decoration: none; color: var(--t1);
       display: flex; align-items: center; gap: 8px;
     }
-    .nav-logo svg { width: 20px; height: 20px; stroke: var(--t1); stroke-width: 1.5; fill: none; }
     .logo-mark {
       display: flex; align-items: center; justify-content: center;
       width: 24px; height: 24px;
-      border: 2px solid var(--t1);
-      border-radius: 5px;
+      border: 2px solid var(--t1); border-radius: 5px;
       font-weight: 800; font-size: 14px;
-      color: var(--t1);
-      flex-shrink: 0;
+      color: var(--t1); flex-shrink: 0;
     }
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a {
-      font-size: 13px; color: var(--t2); text-decoration: none;
-      transition: color 0.15s;
-    }
+    .nav-links a { font-size: 13px; color: var(--t2); text-decoration: none; transition: color 0.15s; }
     .nav-links a:hover { color: var(--t1); }
     .nav-cta {
       font-size: 13px; font-weight: 500;
@@ -92,38 +85,37 @@
 
     /* HERO */
     .hero {
-      padding: 140px 24px 100px;
-      text-align: center;
       position: relative;
+      padding: 0; height: 100vh; min-height: 600px; max-height: 900px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
     }
-    .hero::after {
-      content: '';
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 70%);
-      pointer-events: none;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('/images/Herramienta.jpeg') center/cover no-repeat;
     }
-    .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 680px; padding: 0 24px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 7px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
       border-radius: 100px; padding: 5px 14px;
       font-size: 12px; color: var(--t2); margin-bottom: 28px;
-      font-weight: 500;
+      font-weight: 500; backdrop-filter: blur(8px);
     }
     .dot { width: 5px; height: 5px; background: #34d399; border-radius: 50%; animation: p 2s infinite; }
     @keyframes p { 0%,100%{opacity:1} 50%{opacity:.3} }
     .hero h1 {
       font-size: clamp(36px, 6.5vw, 64px);
       font-weight: 700; line-height: 1.08; letter-spacing: -2px;
-      margin-bottom: 18px;
-      background: linear-gradient(180deg, #fff 30%, #71717a 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin-bottom: 18px; color: #fff;
     }
     .hero p {
-      font-size: 17px; color: var(--t2); max-width: 440px;
+      font-size: 17px; color: rgba(255,255,255,0.7); max-width: 440px;
       margin: 0 auto 36px; line-height: 1.65; letter-spacing: -0.2px;
     }
     .hero-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -138,12 +130,13 @@
     .btn-p svg { width: 16px; height: 16px; }
     .btn-s {
       display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--t1);
+      background: rgba(255,255,255,0.08); color: var(--t1);
       font-size: 14px; font-weight: 500; padding: 10px 22px;
       border-radius: 8px; text-decoration: none;
-      border: 1px solid var(--border); transition: all 0.15s;
+      border: 1px solid rgba(255,255,255,0.15); transition: all 0.15s;
+      backdrop-filter: blur(8px);
     }
-    .btn-s:hover { border-color: var(--border-h); background: rgba(255,255,255,0.02); }
+    .btn-s:hover { background: rgba(255,255,255,0.12); }
     .btn-s svg { width: 16px; height: 16px; }
 
     /* DIVIDER */
@@ -159,16 +152,14 @@
     /* RATING BADGE */
     .rating-badge {
       display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 14px;
-      font-size: 13px; color: var(--t2);
+      margin-top: 14px; font-size: 13px; color: var(--t2);
     }
     .rating-badge .stars { color: #FBBF24; letter-spacing: 1px; }
     .rating-badge strong { color: var(--t1); font-weight: 600; }
 
     /* SERVICES */
     .svc-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: grid; grid-template-columns: repeat(5, 1fr);
       gap: 1px; background: var(--border);
       border: 1px solid var(--border);
       border-radius: var(--radius); overflow: hidden;
@@ -181,6 +172,25 @@
     .svc svg { margin: 0 auto 10px; display: block; }
     .svc h3 { font-size: 13px; font-weight: 500; color: var(--t1); letter-spacing: -0.1px; }
     @media (max-width: 768px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* IMAGE BANNER */
+    .img-banner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .img-banner img {
+      width: 100%; height: 280px; object-fit: cover;
+      display: block; filter: brightness(0.8);
+      transition: filter 0.3s;
+    }
+    .img-banner img:hover { filter: brightness(0.95); }
+    @media (max-width: 640px) {
+      .img-banner { grid-template-columns: 1fr; }
+      .img-banner img { height: 220px; }
+    }
 
     /* STEPS */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -220,6 +230,19 @@
     .ic p { font-size: 14px; color: var(--t2); line-height: 1.75; }
     .ic a { color: var(--t1); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
     .ic a:hover { border-color: var(--t1); }
+
+    /* LOCATION IMAGE */
+    .loc-img {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      height: 260px;
+    }
+    .loc-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.85);
+    }
+
     .mw {
       margin-top: 12px; border: 1px solid var(--border);
       border-radius: var(--radius); overflow: hidden; height: 260px;
@@ -256,7 +279,7 @@
 
     /* MOBILE */
     @media (max-width: 640px) {
-      .hero { padding: 120px 20px 72px; }
+      .hero { min-height: 500px; max-height: 700px; }
       section { padding: 64px 20px; }
       .hero-btns { flex-direction: column; align-items: stretch; }
       .btn-p, .btn-s { justify-content: center; }
@@ -284,8 +307,9 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO with Herramienta.jpeg background -->
 <div class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-badge"><span class="dot"></span>Colima, México</div>
     <h1>Tu auto en las mejores manos</h1>
@@ -356,7 +380,17 @@
   </div>
 </section>
 
-<div class="div"></div>
+<!-- IMAGE BANNER: Mecanicos + Mecánico con logo -->
+<div class="img-banner fi" style="margin: 0 auto; padding: 0 24px; max-width: 1148px;">
+  <div style="overflow:hidden;">
+    <img src="/images/MecanicosTrabajando.jpeg" alt="Mecánicos diagnosticando motor" loading="lazy">
+  </div>
+  <div style="overflow:hidden;">
+    <img src="/images/Mecanicoconlogotalleryauto.jpeg" alt="Mecánico trabajando en vehículo" loading="lazy">
+  </div>
+</div>
+
+<div class="div" style="margin-top: 0;"></div>
 
 <!-- PROCESS -->
 <section id="proceso" class="fi">
@@ -453,6 +487,9 @@
       <p><a href="https://wa.me/523121059683">WhatsApp: 312 105 9683</a><br><a href="tel:+523121059683">Teléfono: 312 105 9683</a></p>
     </div>
   </div>
+  <div class="loc-img">
+    <img src="/images/FrenteAbiertoTaller.jpeg" alt="Fachada Taller Mecánico Rafa - Pamplona 303" loading="lazy">
+  </div>
   <div class="mw">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-103.7241!3d19.2433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE0JzM2LjAiTiAxMDPCsDQzJzI2LjgiVw!5e0!3m2!1ses!2smx!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
@@ -476,6 +513,7 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<script defer src="/_vercel/insights/script.js"></script>
 <script>
 const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.06});
 document.querySelectorAll('.fi').forEach(e=>o.observe(e));
