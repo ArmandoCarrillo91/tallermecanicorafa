@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Mecánico Rafa — Colima</title>
+  <meta name="description" content="Taller mecánico de confianza en Colima. Afinación, frenos, suspensión, motor y más. Cotiza por WhatsApp en minutos.">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #000000;
+      --bg-1: #0a0a0a;
+      --bg-2: #111111;
+      --border: rgba(255,255,255,0.06);
+      --border-h: rgba(255,255,255,0.12);
+      --t1: #fafafa;
+      --t2: #a1a1aa;
+      --t3: #52525b;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--t1);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    /* ICON STYLE */
+    .icon {
+      width: 32px; height: 32px;
+      stroke: var(--t2);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 14px; font-weight: 600; letter-spacing: -0.3px;
+      text-decoration: none; color: var(--t1);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo svg { width: 20px; height: 20px; stroke: var(--t1); stroke-width: 1.5; fill: none; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 13px; color: var(--t2); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--t1); }
+    .nav-cta {
+      font-size: 13px; font-weight: 500;
+      background: var(--t1); color: var(--bg);
+      padding: 7px 14px; border-radius: 6px;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero {
+      padding: 140px 24px 100px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 12px; color: var(--t2); margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .dot { width: 5px; height: 5px; background: #34d399; border-radius: 50%; animation: p 2s infinite; }
+    @keyframes p { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero h1 {
+      font-size: clamp(36px, 6.5vw, 64px);
+      font-weight: 700; line-height: 1.08; letter-spacing: -2px;
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, #fff 30%, #71717a 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 17px; color: var(--t2); max-width: 440px;
+      margin: 0 auto 36px; line-height: 1.65; letter-spacing: -0.2px;
+    }
+    .hero-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #000;
+      font-size: 14px; font-weight: 500; padding: 10px 22px;
+      border-radius: 8px; text-decoration: none;
+      transition: all 0.15s; border: none; cursor: pointer;
+    }
+    .btn-p:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(255,255,255,0.08); }
+    .btn-p svg { width: 16px; height: 16px; }
+    .btn-s {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--t1);
+      font-size: 14px; font-weight: 500; padding: 10px 22px;
+      border-radius: 8px; text-decoration: none;
+      border: 1px solid var(--border); transition: all 0.15s;
+    }
+    .btn-s:hover { border-color: var(--border-h); background: rgba(255,255,255,0.02); }
+    .btn-s svg { width: 16px; height: 16px; }
+
+    /* DIVIDER */
+    .div { max-width: 1100px; margin: 0 auto; height: 1px; background: var(--border); }
+
+    /* SECTIONS */
+    section { padding: 88px 24px; max-width: 1100px; margin: 0 auto; }
+    .sh { margin-bottom: 48px; }
+    .sl { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--t3); margin-bottom: 10px; }
+    .st { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; letter-spacing: -1px; line-height: 1.15; }
+    .sd { font-size: 15px; color: var(--t2); margin-top: 10px; max-width: 420px; letter-spacing: -0.1px; }
+
+    /* RATING BADGE */
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 14px;
+      font-size: 13px; color: var(--t2);
+    }
+    .rating-badge .stars { color: #FBBF24; letter-spacing: 1px; }
+    .rating-badge strong { color: var(--t1); font-weight: 600; }
+
+    /* SERVICES */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .svc {
+      background: var(--bg-1); padding: 28px 16px;
+      text-align: center; transition: background 0.15s;
+    }
+    .svc:hover { background: var(--bg-2); }
+    .svc svg { margin: 0 auto 10px; display: block; }
+    .svc h3 { font-size: 13px; font-weight: 500; color: var(--t1); letter-spacing: -0.1px; }
+    @media (max-width: 768px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* STEPS */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .step {
+      background: var(--bg-1); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px 24px;
+      transition: border-color 0.15s;
+    }
+    .step:hover { border-color: var(--border-h); }
+    .step-n { font-size: 12px; font-weight: 600; color: var(--t3); margin-bottom: 16px; font-variant-numeric: tabular-nums; }
+    .step h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 6px; }
+    .step p { font-size: 14px; color: var(--t2); line-height: 1.6; }
+    @media (max-width: 768px) { .steps { grid-template-columns: 1fr; } }
+
+    /* TESTIMONIALS */
+    .tg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .tc {
+      background: var(--bg-1); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 22px;
+      transition: border-color 0.15s;
+    }
+    .tc:hover { border-color: var(--border-h); }
+    .tc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .tc-name { font-size: 13px; font-weight: 600; color: var(--t1); }
+    .tc-stars { color: #FBBF24; font-size: 12px; letter-spacing: 0.5px; }
+    .tc p { font-size: 14px; color: var(--t2); line-height: 1.6; letter-spacing: -0.1px; }
+    .tc-src { font-size: 12px; color: var(--t3); margin-top: 14px; }
+    @media (max-width: 768px) { .tg { grid-template-columns: 1fr; } }
+
+    /* INFO */
+    .ig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ic {
+      background: var(--bg-1); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 22px;
+    }
+    .ic-l { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; color: var(--t3); margin-bottom: 14px; }
+    .ic p { font-size: 14px; color: var(--t2); line-height: 1.75; }
+    .ic a { color: var(--t1); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
+    .ic a:hover { border-color: var(--t1); }
+    .mw {
+      margin-top: 12px; border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; height: 260px;
+    }
+    .mw iframe { width: 100%; height: 100%; border: 0; filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(1.1); }
+    @media (max-width: 768px) { .ig { grid-template-columns: 1fr; } }
+
+    /* FINAL CTA */
+    .fcta {
+      text-align: center; padding: 88px 24px 72px;
+      max-width: 520px; margin: 0 auto;
+    }
+    .fcta h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 700; letter-spacing: -1px; margin-bottom: 10px; }
+    .fcta p { font-size: 15px; color: var(--t2); margin-bottom: 28px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px; text-align: center;
+      font-size: 12px; color: var(--t3);
+    }
+
+    /* WA FLOAT */
+    .waf {
+      position: fixed; bottom: 20px; right: 20px; z-index: 99;
+      width: 52px; height: 52px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(37,211,102,0.25);
+      transition: transform 0.15s; text-decoration: none;
+    }
+    .waf:hover { transform: scale(1.08); }
+    .waf svg { width: 26px; height: 26px; fill: white; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 72px; }
+      section { padding: 64px 20px; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .btn-p, .btn-s { justify-content: center; }
+    }
+
+    /* ANIM */
+    .fi { opacity: 0; transform: translateY(14px); transition: opacity 0.45s, transform 0.45s; }
+    .fi.v { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17H3V11l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0H9m-6-6h15m-6 0V6"/></svg>
+      Taller Mecánico Rafa
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#ubicacion">Ubicación</a>
+    </div>
+    <a href="https://wa.me/523121059683?text=Hola%2C%20quiero%20cotizar%20un%20servicio" class="nav-cta" target="_blank">Cotizar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span>Colima, México</div>
+    <h1>Tu auto en las mejores manos</h1>
+    <p>Diagnóstico honesto, reparaciones garantizadas y precios justos. Cotiza en minutos por WhatsApp.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/523121059683?text=Hola%2C%20quiero%20cotizar%20un%20servicio" class="btn-p" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Cotizar por WhatsApp
+      </a>
+      <a href="tel:+523121059683" class="btn-s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Llamar
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<!-- SERVICES -->
+<section id="servicios" class="fi">
+  <div class="sh">
+    <p class="sl">Servicios</p>
+    <h2 class="st">Lo que hacemos</h2>
+    <p class="sd">Nuestros 10 servicios más solicitados, respaldados por años de experiencia.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <h3>Afinación</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <h3>Frenos</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      <h3>Suspensión</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      <h3>Diagnóstico</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
+      <h3>Enfriamiento</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <h3>Clutch</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+      <h3>Aceite</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2m-7.07-3.93l1.41-1.41m9.9-9.9l1.41-1.41M1 12h2m18 0h2m-3.93 7.07l-1.41-1.41M5.64 5.64L4.22 4.22"/></svg>
+      <h3>Motor</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <h3>Distribución</h3>
+    </div>
+    <div class="svc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M18.36 5.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+      <h3>Eléctrico</h3>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- PROCESS -->
+<section id="proceso" class="fi">
+  <div class="sh">
+    <p class="sl">Proceso</p>
+    <h2 class="st">3 pasos, sin complicaciones</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">01</div>
+      <h3>Escríbenos</h3>
+      <p>Mándanos un WhatsApp con lo que necesitas. Sin formularios, sin esperas.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <h3>Recibe cotización</h3>
+      <p>Te respondemos con precio, tiempo estimado y fecha disponible.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <h3>Trae tu auto</h3>
+      <p>Nosotros nos encargamos. Te avisamos cuando esté listo.</p>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- TESTIMONIALS -->
+<section class="fi">
+  <div class="sh">
+    <p class="sl">Clientes</p>
+    <h2 class="st">Lo que dicen de nosotros</h2>
+    <div class="rating-badge">
+      <span class="stars">★★★★★</span>
+      <span><strong>4.8</strong> — 16 reseñas en Google</span>
+    </div>
+  </div>
+  <div class="tg">
+    <div class="tc">
+      <div class="tc-top">
+        <span class="tc-name">Princesa Lars</span>
+        <span class="tc-stars">★★★★★</span>
+      </div>
+      <p>"Excelente servicio, trabajo de calidad, tiempo de entrega como se acordó, muy buen trato desde el inicio."</p>
+      <div class="tc-src">Google Maps</div>
+    </div>
+    <div class="tc">
+      <div class="tc-top">
+        <span class="tc-name">Luis Cobián</span>
+        <span class="tc-stars">★★★★★</span>
+      </div>
+      <p>"Muy recomendable, profesionalismo, transparencia y puntualidad. Les doy un 10."</p>
+      <div class="tc-src">Google Maps · Local Guide</div>
+    </div>
+    <div class="tc">
+      <div class="tc-top">
+        <span class="tc-name">Luis Torres</span>
+        <span class="tc-stars">★★★★★</span>
+      </div>
+      <p>"Excelente servicio, rápido, excelente atención tanto por teléfono como en persona. Soberbio."</p>
+      <div class="tc-src">Google Maps</div>
+    </div>
+    <div class="tc">
+      <div class="tc-top">
+        <span class="tc-name">Luiscolima Gonzalez</span>
+        <span class="tc-stars">★★★★★</span>
+      </div>
+      <p>"Atención, buen servicio, amabilidad, honestidad, y diagnostican lo que realmente tiene tu vehículo."</p>
+      <div class="tc-src">Google Maps</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- LOCATION -->
+<section id="ubicacion" class="fi">
+  <div class="sh">
+    <p class="sl">Ubicación</p>
+    <h2 class="st">Encuéntranos</h2>
+  </div>
+  <div class="ig">
+    <div class="ic">
+      <div class="ic-l">Dirección</div>
+      <p>Prof. Francisco Pamplona 303<br>Col. Prof. Gregorio Torres Quintero<br>28079 Colima, Col.</p>
+    </div>
+    <div class="ic">
+      <div class="ic-l">Horario</div>
+      <p>Lun – Vie: 9:00–14:00, 16:00–19:00<br>Sábado: 9:00–14:00<br>Domingo: Cerrado</p>
+    </div>
+    <div class="ic">
+      <div class="ic-l">Contacto</div>
+      <p><a href="https://wa.me/523121059683">WhatsApp: 312 105 9683</a><br><a href="tel:+523121059683">Teléfono: 312 105 9683</a></p>
+    </div>
+  </div>
+  <div class="mw">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d-103.7241!3d19.2433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE0JzM2LjAiTiAxMDPCsDQzJzI2LjgiVw!5e0!3m2!1ses!2smx!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- CTA -->
+<div class="fcta fi">
+  <h2>¿Tu auto necesita servicio?</h2>
+  <p>Cotiza por WhatsApp en minutos. Sin compromisos.</p>
+  <a href="https://wa.me/523121059683?text=Hola%2C%20quiero%20cotizar%20un%20servicio" class="btn-p" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Cotizar por WhatsApp
+  </a>
+</div>
+
+<footer>© 2025 Taller Mecánico Rafa — Colima, México</footer>
+
+<a href="https://wa.me/523121059683?text=Hola%2C%20quiero%20cotizar%20un%20servicio" class="waf" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.06});
+document.querySelectorAll('.fi').forEach(e=>o.observe(e));
+</script>
+
+</body>
+</html>
